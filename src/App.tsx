@@ -1,10 +1,13 @@
 import Navbar from "@/scenes/navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SelectedPage } from "./shared/types";
  
 function App() {
 
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(SelectedPage.Home);
+  const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
+
+  useEffect
 
   return (
     <div className='app bg-gray-20'>
