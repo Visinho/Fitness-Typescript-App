@@ -5,3 +5,7 @@ export enum SelectedPage {
     ContactUs = "contactus"
   }
   
+  
+ export type Props = {
+    setSelectedPage: (value: SelectedPage) => void
+};

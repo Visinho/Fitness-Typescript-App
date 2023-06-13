@@ -1,4 +1,5 @@
-import { SelectedPage } from "@/shared/types";
+import HText from "@/shared/HText";
+import { Props, SelectedPage } from "@/shared/types";
 import {
     HomeModernIcon,
     UserGroupIcon,
@@ -6,23 +7,30 @@ import {
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 
-type Props = {
-    setSelectedPage: (value: SelectedPage) => void;
-}
+
+// type Props = {
+//     setSelectedPage: (value: SelectedPage) => void
+// };
+
+
 
 const Benefits = ({setSelectedPage}: Props) => {
-  return 
-   <section 
-   id="benefits" 
-   className="mx-auto min-h-full w-5/6 py-20">
-    <motion.div
-        onViewportEnter={() => setSelectedPage(SelectedPage.Benefits)}
-    >
-        <div>
-        </div>
-    </motion.div>
-   </section> 
-  
+  return (
+    <section 
+    id="benefits" 
+    className="mx-auto min-h-full w-5/6 py-20">
+     <motion.div
+         onViewportEnter={() => setSelectedPage(SelectedPage.Benefits)}
+     >
+         <div>
+            <HText>
+                 MORE THAN JUST A GYM...
+             </HText> 
+         </div>
+     </motion.div>
+    </section> 
+  )
+
 }
 
-export default Benefits
+export default Benefits;

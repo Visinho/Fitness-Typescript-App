@@ -1,4 +1,4 @@
-import { SelectedPage } from '@/shared/types'
+import { Props, SelectedPage } from '@/shared/types';
 import useMediaQuery from '@/hooks/useMediaQuery';
 import ActionButton from '@/shared/ActionButton';
 import HomePageText from "@/assets/HomePageText.png";
@@ -9,9 +9,9 @@ import SponsorFortune from "@/assets/SponsorFortune.png";
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { motion } from 'framer-motion';
 
-type Props = {
-    setSelectedPage: (value: SelectedPage) => void
-};
+// type Props = {
+//     setSelectedPage: (value: SelectedPage) => void
+// };
 
 const Home = ({setSelectedPage}: Props) => {
     const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
