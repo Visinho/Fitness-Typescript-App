@@ -7,6 +7,8 @@ import {
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import Benefit from "./Benefit";
+import ActionButton from "@/shared/ActionButton";
+import BenefitsPageGraphic from "@/assets/BenefitsPageGraphic.png";
 
 
 // type Props = {
@@ -62,7 +64,6 @@ const Benefits = ({setSelectedPage}: Props) => {
                  <p className="my-5 text-sm">
                  Get fit, strong, and healthy with XYZ Gym. Visit our website for state-of-the-art facilities, expert trainers, and diverse fitness programs. Start your fitness journey today!
                  </p>
-            
          </motion.div>
 
          <motion.div 
@@ -82,6 +83,61 @@ const Benefits = ({setSelectedPage}: Props) => {
                     />
             ))}
          </motion.div>
+
+         <div className="mt-16 items-center justify-between gap-20 md:mt-28 md:flex">
+            <img 
+                className="mx-auto"
+                alt="benefits-page-graphic"
+                src={BenefitsPageGraphic}
+            />
+
+            <div>
+                <div className="relative">
+                    <div className="before:absolute before:-top-20 before:-left-20 before:z-[1] before:content-abstractwaves">
+                        <motion.div
+                             initial="hidden"
+                             whileInView="visible"
+                             viewport={{ once: true, amount: 0.5 }}
+                             transition={{ delay: 1.0, duration: 2.0 }}
+                             variants={{ 
+                                 hidden: { opacity: 0, x: 50},
+                                 visible: { opacity: 1, x: 0}
+                             }}
+                            >
+                            <HText>MILLIONS OF HAPPY MEMBERS GETTING {" "}
+                                <span className="text-primary-500">FIT</span>
+                            </HText>
+                        </motion.div>
+                    </div>
+                </div>
+
+                <motion.div
+                     initial="hidden"
+                     whileInView="visible"
+                     viewport={{ once: true, amount: 0.5 }}
+                     transition={{ delay: 0.5, duration: 2.0 }}
+                     variants={{ 
+                         hidden: { opacity: 0, x: 50},
+                         visible: { opacity: 1, x: 0}
+                     }}
+                >
+                    <p className="my-5">
+                        Unlock your fitness potential with our gym, trusted by millions of members worldwide. Our comprehensive online platform offers a multitude of workout options, from dynamic group classes to customizable training plans. Experience the convenience of on-demand fitness videos, live streaming sessions with top trainers, and interactive challenges that keep you motivated. With personalized progress tracking, nutrition guidance, and a supportive community, achieving your fitness goals has never been easier. Join our gym website today and join the millions who have transformed their lives, one workout at a time. Get fit, stay motivated, and thrive with us!
+                    </p>
+                    <p className="mb-5">
+                        Elevate your fitness journey with our gym website, empowering millions of members worldwide to get fit and stay motivated. Enjoy unlimited access to a vast library of workout videos, expert-led classes, and personalized training plans. Track your progress, connect with a supportive community, and embrace a healthier lifestyle from the comfort of your own home. Join us today and unleash your full fitness potential.
+                    </p>
+                </motion.div>
+
+                <div className="relative mt-16">
+                    <div className="before:absolute before:-bottom-20 before:right-40 before:z-[-1] before:content-sparkles">
+                        <ActionButton setSelectedPage={setSelectedPage}>JOIN NOW!</ActionButton>
+                    </div>
+                </div>
+
+            </div>
+         </div>
+
      </motion.div>
     </section> 
   )
