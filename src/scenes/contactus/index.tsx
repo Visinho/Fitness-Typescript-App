@@ -1,4 +1,4 @@
-import { SelectedPage } from "@/shared/types"
+import { SelectedPage } from "@/shared/types";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import ContactUsPageGraphic from "@/assets/ContactUsPageGraphic.png";
@@ -9,6 +9,8 @@ type Props = {
 }
 
 const ContactUs = ({ setSelectedPage }: Props) => {
+
+    const inputStyles = `mt-5 w-full rounded-lg bg-primary-300 px-5 py-3 placeholder-white`;
 
     const { register, trigger, formState: {errors} } = useForm();
 
@@ -58,7 +60,58 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                             method="POST"
                             action="https://formsubmit.co/Elvisvisinho@rocketmail.com"
                         >
-                            <input />
+                            <input
+                                className={inputStyles}
+                                type="text"
+                                placeholder="NAME"
+                                {...register("name", {
+                                    required: true,
+                                    maxLength: 10,
+                                })}
+                                />
+                                {errors.name && (
+                                    <p className="mt-1 text-primary-500">
+                                        {errors.name.type === "required" && "This field is required."}
+                                        {errors.name.type === "maxLength" && "Input should not be more than 10 characters"}
+                                    </p>
+                                )}
+                            <input
+                                className={inputStyles}
+                                type="text"
+                                placeholder="EMAIL"
+                                {...register("email", {
+                                    required: true,
+                                    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+                                })}
+                                />
+                                {errors.email && (
+                                    <p className="mt-1 text-primary-500">
+                                        {errors.email.type === "required" && "This field is required."}
+                                        {errors.email.type === "pattern" && "Invalid email"}
+                                    </p>
+                                )}
+                            <textarea
+                                className={inputStyles}
+                                rows={4}
+                                cols={50}
+                                placeholder="MESSAGE"
+                                {...register("message", {
+                                    required: true,
+                                    maxLength: 2000,
+                                })}
+                                />
+                                {errors.message && (
+                                    <p className="mt-1 text-primary-500">
+                                        {errors.message.type === "required" && "This field is required."}
+                                        {errors.message.type === "maxLength" && "Input should not be more than 2000 characters"}
+                                    </p>
+                                )}
+                                <button
+                                    type="submit"
+                                    className="mt-5 rounded-lg bg-secondary-500 px-20 py-3 transition duration-500 hover:text-white"
+                                >
+                                    SUBMIT
+                                </button>
                         </form>
                     </motion.div>
                 </div>
